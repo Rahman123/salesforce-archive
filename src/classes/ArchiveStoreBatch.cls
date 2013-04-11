@@ -3,8 +3,9 @@ global with sharing class ArchiveStoreBatch implements Database.Batchable<sObjec
 	private Archive__c archive {get; set;}
 	private String soqlQuery {get; set;}
 	
-	public ArchiveStoreBatch(Archive__c pArchive, String soqlQuery) {
-		this.archive = pArchive;
+	public ArchiveStoreBatch(String soqlQuery) {
+		this.archive = new Archive__c();
+		insert archive; 
 		this.soqlQuery = soqlQuery;
 	} 
 	
