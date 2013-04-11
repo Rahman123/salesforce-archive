@@ -23,8 +23,6 @@ global with sharing class ArchiveRestoreBatch implements Database.Batchable<sObj
 	}
 	
 	global void finish(Database.BatchableContext BC) {
-		// LogUtils.log('Restored records of compression ' + compression.Id);
-		// LogUtils.log('The restore batch completed. Successfully extracted '+ compression.Records_archived__c+ ' records with a rate of ' + compression.Compression_Ratio__c);
 		
 		AsyncApexJob a = [SELECT Id, Status, NumberOfErrors, JobItemsProcessed, TotalJobItems, CreatedBy.Email FROM AsyncApexJob WHERE Id =:BC.getJobId()];
 		Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage();
