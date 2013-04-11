@@ -13,10 +13,14 @@ Data storage is calculated by Salesforce at roughly 2KB for each record. This ut
 
 ## Usage
 ### Archive
-> ArchiveStoreBatch storeBatch = new ArchiveStoreBatch('SELECT Id, ... FROM ...'); <br/>
-> Database.executeBatch(storeBatch);
+```Apex
+ArchiveStoreBatch storeBatch = new ArchiveStoreBatch('SELECT Id, ... FROM ...');
+Database.executeBatch(storeBatch);
+```
 
 ### Restore
-> Archive__c archive = ... // select your archive <br/>
-> ArchiveRestoreBatch restoreBatch = new ArchiveRestoreBatch(archive); <br/>
-> Database.executeBatch(restoreBatch); 
+```Apex
+Archive__c archive = ... // select your archive
+ArchiveRestoreBatch restoreBatch = new ArchiveRestoreBatch(archive);
+Database.executeBatch(restoreBatch); 
+```
